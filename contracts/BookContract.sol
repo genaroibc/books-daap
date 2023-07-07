@@ -31,6 +31,12 @@ contract BookContract {
         );
     }
 
+    function deleteBook(uint _id) public {
+        uint index = findBookIndex(_id);
+
+        delete books[index];
+    }
+
     function findBookIndex(uint _id) public view returns (uint) {
         for (uint i = 0; i < nextBookId; i++) {
             if (books[i].id == _id) {
