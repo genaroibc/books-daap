@@ -3,6 +3,14 @@
 pragma solidity 0.8.19;
 
 contract BookContract {
+    constructor() {
+        createBook(
+            "Lord of the Rings",
+            "The Lord of the Rings is the saga of a group of sometimes reluctant heroes who set forth to save their world from consummate evil. Its many worlds and creatures were drawn from Tolkien's extensive knowledge of philology and folklore.",
+            "J.R.R. Tolkien"
+        );
+    }
+
     struct Book {
         uint id;
         string title;
