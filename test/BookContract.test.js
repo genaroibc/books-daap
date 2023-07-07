@@ -46,4 +46,18 @@ contract("BookContract", async accounts => {
     assert.equal(updatedBook.author, newAuthor)
     assert.equal(updatedBook.description, newDescription)
   })
+
+  it("deletes book", async () => {
+    const id = 1
+
+    const book = await contract.books(id)
+
+    assert(book.title === "1984")
+
+    await contract.deleteBook(id)
+
+    const deletedBook = await contract.books(1)
+
+    assert(deletedBook.title === "")
+  })
 })
