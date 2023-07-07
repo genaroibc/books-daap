@@ -23,6 +23,8 @@ contract BookContract {
 
     uint internal nextBookId = 0;
 
+    event BookCreated(uint id, string title, string author, string description);
+
     function createBook(
         string memory _title,
         string memory _description,
@@ -37,6 +39,8 @@ contract BookContract {
                 createdAt: block.timestamp
             })
         );
+
+        emit BookCreated(nextBookId, _title, _author, _description);
 
         nextBookId++;
     }
