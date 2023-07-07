@@ -16,4 +16,34 @@ contract("BookContract", async accounts => {
 
     assert.equal(book.title, "Lord of the Rings")
   })
+
+  it("creates book", async () => {
+    const title = "1984"
+    const author = "George Orwell"
+    const description = "A book about a dystopian future"
+
+    const result = await contract.createBook(title, description, author)
+
+    const bookEvent = result.logs[0].args
+
+    assert.equal(bookEvent.title, title)
+    assert.equal(bookEvent.description, description)
+    assert.equal(bookEvent.author, author)
+  })
+
+  it("updates book", async () => {
+    const id = 0
+    const newTitle = "Crime and Punishment"
+    const newAuthor = "Fyodor Dostoevsky"
+    const newDescription =
+      "Guilt, murder, redemption, and psychological torment in 19th-century Russia."
+
+    await contract.updateBook(id, newTitle, newDescription, newAuthor)
+
+    const updatedBook = await contract.books(id)
+
+    assert.equal(updatedBook.title, newTitle)
+    assert.equal(updatedBook.author, newAuthor)
+    assert.equal(updatedBook.description, newDescription)
+  })
 })
