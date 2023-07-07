@@ -30,13 +30,15 @@ contract BookContract {
     ) public {
         books[nextBookId] = (
             Book({
-                id: nextBookId++,
+                id: nextBookId,
                 title: _title,
                 author: _author,
                 description: _description,
                 createdAt: block.timestamp
             })
         );
+
+        nextBookId++;
     }
 
     function updateBook(
