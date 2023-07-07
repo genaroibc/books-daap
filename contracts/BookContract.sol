@@ -31,6 +31,17 @@ contract BookContract {
         );
     }
 
+    function updateBook(
+        uint _id,
+        string memory _title,
+        string memory _description
+    ) public {
+        uint index = findBookIndex(_id);
+
+        books[index].title = _title;
+        books[index].description = _description;
+    }
+
     function deleteBook(uint _id) public {
         uint index = findBookIndex(_id);
 
