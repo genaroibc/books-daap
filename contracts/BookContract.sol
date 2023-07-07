@@ -31,9 +31,13 @@ contract BookContract {
         );
     }
 
-    // function getBook() {}
+    function findBookIndex(uint _id) public view returns (uint) {
+        for (uint i = 0; i < nextBookId; i++) {
+            if (books[i].id == _id) {
+                return i;
+            }
+        }
 
-    // function updateBook() {}
-
-    // function deleteBook() {}
+        revert("Book not found");
+    }
 }
