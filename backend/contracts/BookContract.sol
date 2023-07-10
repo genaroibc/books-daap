@@ -21,7 +21,7 @@ contract BookContract {
 
     mapping(uint => Book) public books;
 
-    uint internal nextBookId = 0;
+    uint public booksCount = 0;
 
     event BookCreated(uint id, string title, string author, string description);
 
@@ -30,9 +30,9 @@ contract BookContract {
         string memory _description,
         string memory _author
     ) public {
-        books[nextBookId] = (
+        books[booksCount] = (
             Book({
-                id: nextBookId,
+                id: booksCount,
                 title: _title,
                 author: _author,
                 description: _description,
@@ -40,9 +40,9 @@ contract BookContract {
             })
         );
 
-        emit BookCreated(nextBookId, _title, _author, _description);
+        emit BookCreated(booksCount, _title, _author, _description);
 
-        nextBookId++;
+        booksCount++;
     }
 
     function updateBook(
@@ -65,7 +65,7 @@ contract BookContract {
     }
 
     function findBookIndex(uint _id) public view returns (uint) {
-        for (uint i = 0; i < nextBookId; i++) {
+        for (uint i = 0; i < booksCount; i++) {
             if (books[i].id == _id) {
                 return i;
             }
