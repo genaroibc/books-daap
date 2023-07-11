@@ -1,4 +1,3 @@
-import "./App.css"
 import "@truffle/contract/browser-dist/truffle-contract.min.js"
 import { CreateBookForm } from "./components/CreateBookForm"
 import { BookData } from "./types"
@@ -29,12 +28,12 @@ function App() {
   }
 
   return (
-    <main>
+    <main className="max-w-7xl mx-auto">
       <h1>Books Dapp</h1>
 
       <CreateBookForm onSubmit={handleCreateBook} />
 
-      <div className="flex flex-col gap-4">
+      <section className="flex flex-col p-4 gap-4 max-w-4xl mx-auto">
         {books.map(({ author, description, title }) => (
           <BookCard
             key={title}
@@ -43,7 +42,7 @@ function App() {
             title={title}
           />
         ))}
-      </div>
+      </section>
     </main>
   )
 }
