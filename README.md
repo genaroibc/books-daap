@@ -48,7 +48,7 @@ npm install truffle -g && truffle deploy
 cd frontend && npm install && npm run dev
 ```
 
-Finally, open [http://localhost:5173](http://localhost:5173) in your browser to start playing
+Finally, open [http://localhost:5173](http://localhost:5173) in your browser to start playing. Make sure you use the account imported from Ganache to sign transactions.
 
 ### Testing
 
