@@ -64,3 +64,4 @@ truffle test
 - React
 - TypeScript
 - Mocha
+- Truffle
