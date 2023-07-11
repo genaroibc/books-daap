@@ -7,7 +7,7 @@ A simple dApp to manage a book library.
 To get started, clone the repository and move to the root folder:
 
 ```bash
-git clone https://github.com/genaroibc/books-daap.git && cd books-dapp
+git clone https://github.com/genaroibc/books-dapp.git && cd books-dapp
 ```
 
 Then, open two terminals, one for the frontend and one for the backend, and install dependencies:
@@ -24,17 +24,23 @@ cd backend && npm install
 
 ### Backend
 
-To deploy the contract, install [Ganache](https://trufflesuite.com/ganache/) and create a quick start workspace
+1. Install [Ganache](https://trufflesuite.com/ganache/) and create a quick start workspace
+
+2. Deploy the contract using `truffle`
+
+```bash
+npm install truffle -g && truffle deploy
+```
 
 ### Frontend
 
-To start the dev server, run the following command in the `/frontend` folder:
+Start the dev server by running the following command in the `/frontend` folder:
 
 ```bash
 npm run dev
 ```
 
-Then open [http://localhost:3000](http://localhost:3000) in your browser.
+Then open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ### Testing
 
