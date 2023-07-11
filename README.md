@@ -24,9 +24,9 @@ cd backend && npm install
 
 ### Backend
 
-1. Install [Ganache](https://trufflesuite.com/ganache/) and create a quick start workspace
+1. Install [Ganache](https://trufflesuite.com/ganache/) and create a quick start workspace:
 
-2. Deploy the contract using `truffle`
+2. Install `truffle` globally and deploy the contract:
 
 ```bash
 npm install truffle -g && truffle deploy
@@ -34,17 +34,25 @@ npm install truffle -g && truffle deploy
 
 ### Frontend
 
-Start the dev server by running the following command in the `/frontend` folder:
+1. Add a new network in Metamask with the following parameters:
+
+| Network Name | RPC URL               | Chain ID | Symbol |
+| ------------ | --------------------- | -------- | ------ |
+| Ganache      | http://localhost:7545 | 1337     | ETH    |
+
+2. Import the first account from Ganache to Metamask using its private key:
+
+3. Start the dev server:
 
 ```bash
 npm run dev
 ```
 
-Then open [http://localhost:5173](http://localhost:5173) in your browser.
+Finally, open [http://localhost:5173](http://localhost:5173) in your browser to start playing
 
 ### Testing
 
-To run the tests, run the following command:
+To run the tests, run the following command in the `/backend` folder:
 
 ```bash
 truffle test
