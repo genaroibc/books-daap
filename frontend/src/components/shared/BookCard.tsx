@@ -4,6 +4,7 @@ import { updateBook } from "../../services/updateBook"
 
 export function BookCard({ author, description, title, id }: BookData) {
   const [isEditing, setIsEditing] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleEditButtonClick = () => {
     setIsEditing(true)
@@ -14,19 +15,22 @@ export function BookCard({ author, description, title, id }: BookData) {
   }
 
   const handleSubmitEdition = async () => {
-    setIsEditing(false)
-
     const title = titleRef.current?.innerText
     const description = descriptionRef.current?.innerText
     const author = authorRef.current?.innerText
 
     if (!title || !description || !author) return
 
+    setIsLoading(true)
+
     await updateBook({
       title,
       description,
       author,
       id
+    }).finally(() => {
+      setIsLoading(false)
+      setIsEditing(false)
     })
   }
 
@@ -35,7 +39,11 @@ export function BookCard({ author, description, title, id }: BookData) {
   const authorRef = useRef<HTMLHeadingElement>(null)
 
   return (
-    <article className="p-4 rounded-md bg-slate-800 overflow-hidden relative">
+    <article
+      className={`${
+        isLoading ? "animate-pulse" : ""
+      } p-4 rounded-md bg-slate-800 overflow-hidden relative`}
+    >
       <button
         onClick={handleEditButtonClick}
         className="bg-transparent absolute top-4 right-4"
@@ -61,7 +69,7 @@ export function BookCard({ author, description, title, id }: BookData) {
         contentEditable={isEditing}
         className={`font-bold text-xl ${
           isEditing
-            ? "text-white bg-slate-700 py-2 px-4 rounded-md outline-dashed outline-1 my-4"
+            ? "text-white bg-slate-700 py-2 px-4 rounded-md my-4"
             : "mb-2"
         }`}
       >
@@ -73,7 +81,7 @@ export function BookCard({ author, description, title, id }: BookData) {
         contentEditable={isEditing}
         className={`text-gray-400 text-lg ${
           isEditing
-            ? "text-white bg-slate-700 py-2 px-4 rounded-md outline-dashed outline-1 my-4"
+            ? "text-white bg-slate-700 py-2 px-4 rounded-md !mb-4"
             : "mb-4"
         }}`}
       >
@@ -85,7 +93,7 @@ export function BookCard({ author, description, title, id }: BookData) {
         contentEditable={isEditing}
         className={`text-ellipsis overflow-hidden max-w-full ${
           isEditing
-            ? "text-white bg-slate-700 py-2 px-4 rounded-md outline-dashed outline-1 my-4"
+            ? "text-white bg-slate-700 py-2 px-4 rounded-md mt-4 mx-0"
             : ""
         }}`}
       >
