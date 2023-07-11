@@ -40,12 +40,13 @@ function App() {
             Books list
           </h3>
           <section className="flex flex-col gap-4">
-            {books.map(({ author, description, title }) => (
+            {books.map(({ author, description, title, id }) => (
               <BookCard
                 key={title}
                 author={author}
                 description={description}
                 title={title}
+                id={id}
               />
             ))}
           </section>
