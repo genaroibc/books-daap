@@ -10,24 +10,18 @@ To get started, clone the repository and move to the root folder:
 git clone https://github.com/genaroibc/books-dapp.git && cd books-dapp
 ```
 
-Then, open two terminals, one for the frontend and one for the backend, and install dependencies:
-
-```bash
-# terminal 1
-cd frontend && npm install
-```
-
-```bash
-# terminal 2
-cd backend && npm install
-```
-
 ### Backend
 
 1. Install [Ganache](https://trufflesuite.com/ganache/) and create a quick start workspace:
-![ganache](https://github.com/genaroibc/books-dapp/assets/98661193/4314542a-c1a4-46ff-8528-2feabe10e34b)
+   ![ganache](https://github.com/genaroibc/books-dapp/assets/98661193/4314542a-c1a4-46ff-8528-2feabe10e34b)
 
-2. Install `truffle` globally and deploy the contract:
+2. Open a new terminal, move to `/backend` folder, and install dependencies:
+
+```bash
+cd backend && npm install
+```
+
+3. Install `truffle` globally and deploy the contract:
 
 ```bash
 npm install truffle -g && truffle deploy
@@ -48,11 +42,10 @@ npm install truffle -g && truffle deploy
 ![ganachekeys](https://github.com/genaroibc/books-dapp/assets/98661193/6e9cb3da-5130-4eef-a8c1-7cd2c8bbc655)
 ![privakey](https://github.com/genaroibc/books-dapp/assets/98661193/0a7266b5-c6ec-4fd5-8629-fb10e39d0056)
 
-
-3. Start the dev server:
+3. Open a new terminal, install dependencies, and start the dev server:
 
 ```bash
-npm run dev
+cd frontend && npm install && npm run dev
 ```
 
 Finally, open [http://localhost:5173](http://localhost:5173) in your browser to start playing
