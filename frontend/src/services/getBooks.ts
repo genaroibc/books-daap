@@ -17,5 +17,12 @@ export async function getBooks(): Promise<BookData[]> {
     ({ value }) => value
   )
 
-  return books as BookData[]
+  const normalizedBooks = books.map(book => ({
+    id: Number(book.id),
+    title: book.title,
+    description: book.description,
+    author: book.author
+  }))
+
+  return normalizedBooks
 }
