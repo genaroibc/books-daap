@@ -28,25 +28,35 @@ function App() {
   }
 
   return (
-    <main className="max-w-4xl mx-auto my-32">
-      <h1 className="font-bold mb-6">Books Dapp</h1>
-      <h2 className="font-semibold text-2xl">A decentralized books library</h2>
+    <main className="max-w-7xl mx-auto my-32">
+      <h1 className="text-center font-bold mb-6">Books Dapp</h1>
+      <h2 className="text-center font-semibold text-2xl">
+        A decentralized books library
+      </h2>
 
-      <h3 className="font-medium text-xl my-12 mb-4 text-center">
-        Submit a new book
-      </h3>
-      <CreateBookForm onSubmit={handleCreateBook} />
+      <section className="grid grid-cols-2 gap-8 my-20">
+        <div>
+          <h3 className="font-medium text-xl my-12 mb-4 text-center">
+            Books list
+          </h3>
+          <section className="flex flex-col gap-4">
+            {books.map(({ author, description, title }) => (
+              <BookCard
+                key={title}
+                author={author}
+                description={description}
+                title={title}
+              />
+            ))}
+          </section>
+        </div>
 
-      <h3 className="font-medium text-xl my-12 mb-4 text-center">Books list</h3>
-      <section className="flex flex-col gap-4">
-        {books.map(({ author, description, title }) => (
-          <BookCard
-            key={title}
-            author={author}
-            description={description}
-            title={title}
-          />
-        ))}
+        <div className="">
+          <h3 className="font-medium text-xl my-12 mb-4 text-center">
+            Submit a new book
+          </h3>
+          <CreateBookForm onSubmit={handleCreateBook} />
+        </div>
       </section>
     </main>
   )

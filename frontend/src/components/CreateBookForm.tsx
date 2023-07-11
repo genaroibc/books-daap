@@ -47,7 +47,7 @@ export function CreateBookForm({ onSubmit }: Props) {
 
   return (
     <form
-      className="flex flex-col gap-4 bg-zinc-900 rounded-md p-4 max-w-sm mx-auto"
+      className="flex flex-col gap-4 bg-zinc-900 rounded-md p-4"
       onSubmit={handleSubmit}
     >
       <label className="flex flex-col justify-center gap-2">
