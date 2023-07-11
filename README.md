@@ -4,13 +4,13 @@ A simple dApp to manage a book library.
 
 ## Getting Started
 
-To get started, clone the repository and install the dependencies:
+To get started, clone the repository and move to the root folder:
 
 ```bash
 git clone https://github.com/genaroibc/books-daap.git && cd books-dapp
 ```
 
-Then, open two terminals, one for the frontend and one for the backend, and install the dependencies:
+Then, open two terminals, one for the frontend and one for the backend, and install dependencies:
 
 ```bash
 # terminal 1
